@@ -8,20 +8,28 @@
 </head>
 <body>
     <p>Loading, please wait...</p>
+    <p>To start the game refresh the page</p>
     <script>
-        const numberToGuess = Math.floor(Math.random()*1000);
+        let numberToGuess = Math.floor(Math.random()*1000);
         console.log(numberToGuess);
-        let userAnswer = +prompt("Insert a number from 0 to 999");
-        do {
-            if (isNaN(userAnswer) || (userAnswer < 0 || userAnswer > 999)) {
-                userAnswer = +prompt("This is incorrect data! Try again:");
+
+        while (true) {
+            let userAnswer = prompt("Insert a number from 0 to 999");
+
+            if (userAnswer === "q") {
+                alert("Bye-bye");
+                break
+        } else if (isNaN(userAnswer) && (userAnswer !== "q") || (userAnswer < 0 || userAnswer > 999) || (userAnswer === "")) {
+                alert("This is incorrect data! Try again");
             } else if (userAnswer > numberToGuess) {
-                userAnswer = +prompt("Cold. Try again:");
+                alert("Too big. Try again");
             } else if (userAnswer < numberToGuess) {
-                userAnswer = +prompt("Hot. Try again:");
+                alert("Too small. Try again");
+            } else if (userAnswer == numberToGuess) {
+                alert("You guessed it!");
+                break
             }
-        } while (userAnswer !== numberToGuess);
-        alert("You guessed it!");
+            }
     </script>
 </body>
 </html>
