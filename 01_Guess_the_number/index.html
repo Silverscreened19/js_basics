@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the number game</title>
+</head>
+<body>
+    <p>Loading, please wait...</p>
+    <script>
+        const numberToGuess = Math.floor(Math.random()*1000);
+        console.log(numberToGuess);
+        let userAnswer = +prompt("Insert a number from 0 to 999");
+        do {
+            if (isNaN(userAnswer) || (userAnswer < 0 || userAnswer > 999)) {
+                userAnswer = +prompt("This is incorrect data! Try again:");
+            } else if (userAnswer > numberToGuess) {
+                userAnswer = +prompt("Cold. Try again:");
+            } else if (userAnswer < numberToGuess) {
+                userAnswer = +prompt("Hot. Try again:");
+            }
+        } while (userAnswer !== numberToGuess);
+        alert("You guessed it!");
+    </script>
+</body>
+</html>
