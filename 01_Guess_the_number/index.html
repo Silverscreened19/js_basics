@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guess the number game</title>
 </head>
+
 <body>
     <p>Loading, please wait...</p>
     <p>To start the game refresh the page</p>
     <script>
-        let numberToGuess = Math.floor(Math.random()*1000);
+        let numberToGuess = Math.floor(Math.random() * 1000);
         console.log(numberToGuess);
 
         while (true) {
@@ -19,7 +21,7 @@
             if (userAnswer === "q") {
                 alert("Bye-bye");
                 break
-        } else if (isNaN(userAnswer) && (userAnswer !== "q") || (userAnswer < 0 || userAnswer > 999) || (userAnswer === "")) {
+            } else if (isNaN(userAnswer) && (userAnswer !== "q") || (userAnswer < 0 || userAnswer > 999) || (userAnswer === "")) {
                 alert("This is incorrect data! Try again");
             } else if (userAnswer > numberToGuess) {
                 alert("Too big. Try again");
@@ -29,7 +31,8 @@
                 alert("You guessed it!");
                 break
             }
-            }
+        }
     </script>
 </body>
+
 </html>
